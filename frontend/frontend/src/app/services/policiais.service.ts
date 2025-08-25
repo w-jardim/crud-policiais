@@ -14,7 +14,8 @@ export interface Policial {
 
 @Injectable({ providedIn: 'root' })
 export class PoliciaisService {
-  private apiUrl = 'http://localhost:3000/policiais';
+  // Usar proxy '/api' para evitar CORS em desenvolvimento
+  private apiUrl = '/api/policiais';
 
   constructor(private http: HttpClient) {}
 
