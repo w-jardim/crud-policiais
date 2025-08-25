@@ -1,0 +1,19 @@
+@use 'sass:color';
+
+.app-toolbar {
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	display: flex;
+	gap: .5rem;
+	.logo { font-weight: 600; letter-spacing: .5px; }
+	a.active-link { background: rgba(255,255,255,0.15); }
+}
+
+.spacer { flex: 1 1 auto; }
+
+.app-content {
+	padding: 1.5rem;
+	min-height: calc(100vh - 64px);
+	background: #f5f6f8;
+}
