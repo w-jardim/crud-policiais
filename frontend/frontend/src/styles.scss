@@ -100,16 +100,43 @@ input.mat-mdc-input-element, textarea.mat-mdc-input-element {
 /* Regras específicas para campos com `appearance="fill"` para evitar que o
 	 label e o valor se sobreponham. Ajusta paddings do wrapper e infix. */
 .mat-mdc-form-field-appearance-fill .mat-mdc-form-field-flex {
-	padding-top: 1.1rem; /* espaço para o label flutuante */
-	padding-bottom: .4rem;
+	/* Espaço suficiente para o label flutuante (aumentado para inputs com prefix) */
+	padding-top: 1.4rem;
+	padding-bottom: .45rem;
 }
 
 .mat-mdc-form-field-appearance-fill .mat-mdc-form-field-infix {
-	padding-top: .45rem;
-	padding-bottom: .25rem;
+	/* espaçamento interno do wrapper onde o input fica */
+	padding-top: .6rem;
+	padding-bottom: .3rem;
 }
 
 /* Garantir altura mínima para que o label flutuante tenha espaço */
 .mat-mdc-form-field-appearance-fill .mat-mdc-form-field-infix .mat-mdc-form-field-control {
 	min-height: 2.4rem;
+}
+
+/* prefix / suffix alinhamento vertical para ícones */
+.mat-mdc-form-field .mat-mdc-form-field-prefix,
+.mat-mdc-form-field .mat-mdc-form-field-suffix {
+	display: flex;
+	align-items: center;
+	margin-top: 0.0rem; /* manter alinhado com o texto */
+	padding-left: .45rem;
+	padding-right: .45rem;
+}
+
+/* Ajustes específicos para inputs de data - alguns navegadores desenham placeholder
+	 interno que pode conflitar com o label flutuante. Garantimos altura e padding
+	 que evitam sobreposição. */
+input[type="date"].mat-mdc-input-element {
+	padding-top: .35rem !important;
+	padding-bottom: .25rem !important;
+	min-height: 2.2rem;
+}
+
+/* Em casos extremos forçar o label a flutuar quando houver placeholder do browser */
+.mat-mdc-form-field-appearance-fill.mat-mdc-focused .mat-mdc-form-field-label,
+.mat-mdc-form-field-appearance-fill.mat-mdc-form-field-has-value .mat-mdc-form-field-label {
+	transform: translateY(-1.35rem) scale(.78) !important;
 }
