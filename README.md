@@ -37,30 +37,101 @@ crud-policiais/
    cd crud-policiais
    ```
 
-2. **Instale as dependências:**
-   ```bash
-   npm install
-   ```
+# CRUD Policiais
 
-3. **Configure e crie o banco de dados:**
-   - Caso utilize o Sequelize com migrations:
-     ```bash
-     npx sequelize db:migrate
-     ```
+Este projeto é um sistema completo de cadastro, listagem e gerenciamento de policiais, com backend em Node.js/Express e frontend em Angular. O objetivo é demonstrar um CRUD (Create, Read, Update, Delete) funcional, com integração entre as camadas e documentação de uso.
 
-4. **Inicie a aplicação:**
-   ```bash
-   npm start
-   ```
-   O sistema estará disponível em `http://localhost:3000` (ou porta configurada).
+## Sumário
+- [Funcionalidades](#funcionalidades)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Como Executar o Projeto](#como-executar-o-projeto)
+- [Estrutura do Projeto](#estrutura-do-projeto)
+- [API - Endpoints](#api---endpoints)
+- [Screenshots](#screenshots)
+- [Possíveis Erros](#possíveis-erros)
+- [Autor](#autor)
 
-## Contribuição
+## Funcionalidades
+- Cadastro de policiais
+- Listagem de policiais
+- Edição de dados
+- Remoção de policiais
+- Validação de dados
+- Integração frontend-backend
 
-Sinta-se à vontade para contribuir com o projeto enviando pull requests com melhorias, correções ou novas funcionalidades.
+## Tecnologias Utilizadas
+- **Backend:** Node.js, Express, SQLite (ou outro banco, conforme configuração)
+- **Frontend:** Angular
+- **Outros:** dotenv, cors, body-parser
 
-## Licença
+## Como Executar o Projeto
 
-Este projeto está licenciado sob a licença MIT.
+### 1. Clone o repositório
+```bash
+git clone https://github.com/w-jardim/crud-policiais.git
+cd crud-policiais
+```
+
+### 2. Inicie o backend
+```bash
+cd backend
+npm install
+node index.js
+```
+O backend estará disponível em `http://localhost:3000`.
+
+### 3. Inicie o frontend
+```bash
+cd frontend/frontend
+npm install
+npm start
+```
+O frontend estará disponível em `http://localhost:4200`.
+
+### 4. Acesse o sistema
+Abra o navegador e acesse: [http://localhost:4200](http://localhost:4200)
+
+## Estrutura do Projeto
+```
+crud-policiais/
+├── backend/
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   ├── db.js
+│   ├── index.js
+│   └── ...
+├── frontend/
+│   └── frontend/
+│       ├── src/
+│       └── ...
+└── README.md
+```
+
+## API - Endpoints
+
+- `GET /policiais` — Lista todos os policiais
+- `POST /policiais` — Cadastra um novo policial
+- `PUT /policiais/:id` — Atualiza um policial
+- `DELETE /policiais/:id` — Remove um policial
+
+Veja exemplos de uso e respostas no arquivo `backend/TESTES_API.md`.
+
+## Screenshots
+
+Imagens de exemplos de uso estão disponíveis na pasta `backend/docs/`.
+
+- Cadastro realizado com sucesso: ![GET Sucesso](backend/docs/get-sucesso.png)
+- Erro ao cadastrar policial já existente: ![POST Erro](backend/docs/post-erro-ja-cadastrado.png)
+
+## Possíveis Erros
+- Certifique-se de que as portas 3000 (backend) e 4200 (frontend) estão livres.
+- Instale todas as dependências com `npm install` nas pastas correspondentes.
+- Verifique o arquivo `.env` para configurações de ambiente.
+
+## Autor
+- [w-jardim](https://github.com/w-jardim)
 
 ---
-Desenvolvido por [w-jardim](https://github.com/w-jardim)
+
+Sinta-se à vontade para contribuir ou abrir issues!
