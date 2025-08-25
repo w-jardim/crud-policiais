@@ -38,6 +38,23 @@
 	font-size: 1rem;
 }
 
+/* Novo layout do formulário */
+.new-form .form-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1rem;
+}
+
+.new-form .form-row { display:flex; flex-direction:column; }
+.new-form .field-label { font-size: .95rem; color:#37474f; margin-bottom: .4rem; }
+.new-form .field { background: #fff; border-radius: 10px; box-shadow: 0 8px 20px rgba(11,114,133,0.04); }
+.new-form .field .mat-mdc-form-field-infix { padding: .6rem; }
+.new-form .field-error { color: #c62828; font-size: .85rem; margin-top: .35rem; }
+
+.actions-right { display:flex; justify-content:flex-end; margin-top:1rem; }
+
+@media (max-width:860px) { .new-form .form-grid { grid-template-columns: 1fr; } }
+
 
 .actions {
 	margin-top: 1.25rem;

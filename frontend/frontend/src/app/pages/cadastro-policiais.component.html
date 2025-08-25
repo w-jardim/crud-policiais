@@ -1,46 +1,57 @@
-<mat-card class="cadastro-card">
+<mat-card class="cadastro-card new-form">
   <h2>Cadastro de Policial Militar</h2>
   <form [formGroup]="form" (ngSubmit)="submit()">
-  <mat-form-field appearance="fill" floatLabel="always" class="full-width input-wrap">
-      <mat-icon matPrefix>badge</mat-icon>
-      <mat-label>RG Civil</mat-label>
-      <input matInput formControlName="rg_civil" maxlength="20" required>
-      <mat-error *ngIf="form.get('rg_civil')?.hasError('required')">RG Civil é obrigatório</mat-error>
-    </mat-form-field>
+    <div class="form-grid">
+      <div class="form-row">
+        <label class="field-label">RG Civil*</label>
+        <mat-form-field appearance="outline" class="field">
+          <mat-icon matPrefix>badge</mat-icon>
+          <input matInput formControlName="rg_civil" maxlength="20" placeholder="" aria-label="RG Civil">
+        </mat-form-field>
+        <div class="field-error" *ngIf="form.get('rg_civil')?.hasError('required')">RG Civil é obrigatório</div>
+      </div>
 
-  <mat-form-field appearance="fill" floatLabel="always" class="full-width input-wrap">
-      <mat-icon matPrefix>badge</mat-icon>
-      <mat-label>RG Militar</mat-label>
-      <input matInput formControlName="rg_militar" maxlength="20" required>
-      <mat-error *ngIf="form.get('rg_militar')?.hasError('required')">RG Militar é obrigatório</mat-error>
-    </mat-form-field>
+      <div class="form-row">
+        <label class="field-label">RG Militar*</label>
+        <mat-form-field appearance="outline" class="field">
+          <mat-icon matPrefix>badge</mat-icon>
+          <input matInput formControlName="rg_militar" maxlength="20" placeholder="" aria-label="RG Militar">
+        </mat-form-field>
+        <div class="field-error" *ngIf="form.get('rg_militar')?.hasError('required')">RG Militar é obrigatório</div>
+      </div>
 
-  <mat-form-field appearance="fill" floatLabel="always" class="full-width input-wrap">
-      <mat-icon matPrefix>account_circle</mat-icon>
-      <mat-label>CPF</mat-label>   
-      <input matInput formControlName="cpf" maxlength="14" required>
-      <mat-error *ngIf="form.get('cpf')?.hasError('required')">CPF é obrigatório</mat-error>
-      <mat-error *ngIf="form.get('cpf')?.hasError('cpfInvalido')">CPF inválido</mat-error>
-    </mat-form-field>
+      <div class="form-row">
+        <label class="field-label">CPF*</label>
+        <mat-form-field appearance="outline" class="field">
+          <mat-icon matPrefix>account_circle</mat-icon>
+          <input matInput formControlName="cpf" maxlength="14" placeholder="" aria-label="CPF">
+        </mat-form-field>
+        <div class="field-error" *ngIf="form.get('cpf')?.hasError('required')">CPF é obrigatório</div>
+        <div class="field-error" *ngIf="form.get('cpf')?.hasError('cpfInvalido')">CPF inválido</div>
+      </div>
 
-  <mat-form-field appearance="fill" floatLabel="always" class="full-width input-wrap">
-      <mat-icon matPrefix>cake</mat-icon>
-      <mat-label>Data de Nascimento</mat-label>
-      <input matInput formControlName="data_nascimento" type="date" required>
-      <mat-error *ngIf="form.get('data_nascimento')?.hasError('required')">Data de nascimento é obrigatória</mat-error>
-    </mat-form-field>
+      <div class="form-row">
+        <label class="field-label">Data de Nascimento*</label>
+        <mat-form-field appearance="outline" class="field">
+          <mat-icon matPrefix>cake</mat-icon>
+          <input matInput formControlName="data_nascimento" type="date" placeholder="" aria-label="Data de Nascimento">
+        </mat-form-field>
+        <div class="field-error" *ngIf="form.get('data_nascimento')?.hasError('required')">Data de nascimento é obrigatória</div>
+      </div>
 
-  <mat-form-field appearance="fill" floatLabel="always" class="full-width input-wrap">
-      <mat-icon matPrefix>contacts</mat-icon>
-      <mat-label>Matrícula</mat-label>
-      <input matInput formControlName="matricula" maxlength="50" required>
-      <mat-error *ngIf="form.get('matricula')?.hasError('required')">Matrícula é obrigatória</mat-error>
-    </mat-form-field>
+      <div class="form-row">
+        <label class="field-label">Matrícula*</label>
+        <mat-form-field appearance="outline" class="field">
+          <mat-icon matPrefix>contacts</mat-icon>
+          <input matInput formControlName="matricula" maxlength="50" placeholder="" aria-label="Matrícula">
+        </mat-form-field>
+        <div class="field-error" *ngIf="form.get('matricula')?.hasError('required')">Matrícula é obrigatória</div>
+      </div>
+    </div>
 
-    <div class="actions">
-      <button mat-raised-button color="primary" class="btn-cadastrar" type="submit" [disabled]="form.invalid || loading">
-        <mat-icon *ngIf="!loading" class="icon-left">person_add</mat-icon>
-        <mat-progress-spinner *ngIf="loading" diameter="22" mode="indeterminate" color="accent" strokeWidth="3"></mat-progress-spinner>
+    <div class="actions actions-right">
+      <button mat-flat-button color="primary" class="btn-cadastrar" type="submit" [disabled]="form.invalid || loading">
+        <mat-icon class="icon-left">person_add</mat-icon>
         <span>{{ loading ? 'Enviando...' : 'Cadastrar' }}</span>
       </button>
     </div>
