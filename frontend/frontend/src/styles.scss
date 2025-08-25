@@ -93,5 +93,23 @@ input[matInput]:focus, textarea[matInput]:focus {
 /* Inputs internos transparentes (o visual fica no wrapper) */
 input.mat-mdc-input-element, textarea.mat-mdc-input-element {
 	background: transparent !important;
-	padding: .35rem 0 !important;
+	/* não forçar padding aqui — deixar o Material gerenciar o espaçamento para
+		 que o label flutuante funcione corretamente */
+}
+
+/* Regras específicas para campos com `appearance="fill"` para evitar que o
+	 label e o valor se sobreponham. Ajusta paddings do wrapper e infix. */
+.mat-mdc-form-field-appearance-fill .mat-mdc-form-field-flex {
+	padding-top: 1.1rem; /* espaço para o label flutuante */
+	padding-bottom: .4rem;
+}
+
+.mat-mdc-form-field-appearance-fill .mat-mdc-form-field-infix {
+	padding-top: .45rem;
+	padding-bottom: .25rem;
+}
+
+/* Garantir altura mínima para que o label flutuante tenha espaço */
+.mat-mdc-form-field-appearance-fill .mat-mdc-form-field-infix .mat-mdc-form-field-control {
+	min-height: 2.4rem;
 }
