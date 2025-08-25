@@ -25,6 +25,17 @@
 	width: 100%;
 }
 
+.full-width { width: 100%; }
+
+.cadastro-card .mat-mdc-form-field { margin-bottom: .5rem; }
+
+.cadastro-card input.mat-mdc-input-element { padding: .45rem 0; }
+
+.btn-cadastrar {
+	background: linear-gradient(90deg, var(--color-primary), var(--color-primary-accent));
+	color: #fff;
+}
+
 
 .actions {
 	margin-top: 1.25rem;

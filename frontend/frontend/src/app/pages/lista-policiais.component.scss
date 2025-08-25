@@ -37,9 +37,33 @@
 }
 
 .actions {
-	display: flex;
-	align-items: center;
-	gap: 1rem;
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+}
+
+.lista-rows {
+	display: grid;
+	gap: 0.6rem;
+}
+
+::ng-deep table.mat-mdc-table tbody tr { 
+	background: transparent;
+}
+
+::ng-deep table.mat-mdc-table tbody tr td {
+	padding: 1.25rem 1rem;
+}
+
+/* linha como cartão discreto */
+::ng-deep table.mat-mdc-table tbody tr { 
+	border-radius: 10px;
+	transition: box-shadow .16s ease, transform .12s ease;
+}
+
+::ng-deep table.mat-mdc-table tbody tr:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 8px 26px rgba(11,114,133,0.06);
 }
 
 .btn-atualizar {

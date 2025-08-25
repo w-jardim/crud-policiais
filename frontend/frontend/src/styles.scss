@@ -25,6 +25,9 @@ body {
 	--shadow-sm: 0 1px 2px rgba(0,0,0,.08);
 	--shadow-md: 0 4px 10px rgba(0,0,0,.08);
 	--shadow-lg: 0 8px 24px rgba(0,0,0,.12);
+	--input-bg: #ffffff;
+	--input-shadow: 0 8px 20px rgba(11,114,133,0.04);
+	--control-radius: 12px;
 }
 
 a { text-decoration: none; color: inherit; }
@@ -64,4 +67,31 @@ input[matInput]:focus, textarea[matInput]:focus {
 	outline: none;
 	box-shadow: 0 6px 18px rgba(14,165,164,0.08);
 	border-radius: 8px;
+}
+
+/* Campos com cantos arredondados e sombra leve */
+.mat-mdc-form-field {
+	background: var(--input-bg);
+	border-radius: var(--control-radius);
+	box-shadow: var(--input-shadow);
+	transition: box-shadow .18s ease, transform .12s ease;
+}
+
+.mat-mdc-form-field .mat-mdc-form-field-infix {
+	padding: 0.4rem 0.6rem;
+}
+
+.mat-mdc-form-field:hover {
+	transform: translateY(-1px);
+	box-shadow: 0 12px 30px rgba(11,114,133,0.06);
+}
+
+.mat-mdc-form-field.mat-mdc-focused {
+	box-shadow: 0 14px 36px rgba(14,165,164,0.09);
+}
+
+/* Inputs internos transparentes (o visual fica no wrapper) */
+input.mat-mdc-input-element, textarea.mat-mdc-input-element {
+	background: transparent !important;
+	padding: .35rem 0 !important;
 }
