@@ -9,15 +9,23 @@
     </div>
   </div>
   <div class="filtros">
-  <mat-form-field appearance="fill" floatLabel="always" class="input-wrap">
-      <mat-label>Filtrar por CPF</mat-label>
-      <input matInput [formControl]="filtroCpf" maxlength="14">
-    </mat-form-field>
-  <mat-form-field appearance="fill" floatLabel="always" class="input-wrap">
-      <mat-label>Filtrar por RG</mat-label>
-      <input matInput [formControl]="filtroRg" maxlength="20">
-    </mat-form-field>
-  <div class="actions"></div>
+    <div class="filter-row">
+      <label class="field-label">Filtrar por CPF</label>
+      <mat-form-field appearance="outline" class="field">
+        <mat-icon matPrefix>account_circle</mat-icon>
+        <input matInput [formControl]="filtroCpf" maxlength="14" placeholder="">
+      </mat-form-field>
+    </div>
+
+    <div class="filter-row">
+      <label class="field-label">Filtrar por RG</label>
+      <mat-form-field appearance="outline" class="field">
+        <mat-icon matPrefix>badge</mat-icon>
+        <input matInput [formControl]="filtroRg" maxlength="20" placeholder="">
+      </mat-form-field>
+    </div>
+
+    <div class="actions"></div>
   </div>
   <div *ngIf="loading" class="loading">Carregando...</div>
 

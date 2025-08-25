@@ -32,6 +32,11 @@
 .input-wrap { display: block; border-radius: 12px; overflow: hidden; }
 .input-wrap .mat-mdc-form-field-infix { padding-left: .6rem; padding-right: .6rem; }
 
+.filter-row { display:flex; flex-direction:column; }
+.filter-row .field-label { font-size:.95rem; color:#37474f; margin-bottom:.35rem; }
+.filter-row .field { background:#fff; border-radius:10px; box-shadow: 0 8px 20px rgba(11,114,133,0.04); }
+.filter-row .mat-mdc-form-field-infix { padding:.55rem; }
+
 .filtros {
 	display: flex;
 	gap: 1rem;
