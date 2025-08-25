@@ -18,6 +18,17 @@
 	}
 }
 
+.card-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+}
+
+.header-actions { display:flex; align-items:center; }
+
+.lista-card h2 { margin: 0; font-size: 1.4rem; }
+
 .filtros {
 	display: flex;
 	gap: 1rem;

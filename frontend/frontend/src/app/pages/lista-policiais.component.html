@@ -1,5 +1,13 @@
 <mat-card class="lista-card">
-  <h2>Policiais Militares Cadastrados</h2>
+  <div class="card-header">
+    <h2>Policiais Militares Cadastrados</h2>
+    <div class="header-actions">
+      <button mat-stroked-button color="primary" class="btn-atualizar" (click)="carregar()" [disabled]="loading" aria-label="Atualizar lista">
+        <mat-icon class="icon-left">refresh</mat-icon>
+        <span>Atualizar</span>
+      </button>
+    </div>
+  </div>
   <div class="filtros">
     <mat-form-field appearance="outline">
       <mat-label>Filtrar por CPF</mat-label>
@@ -9,13 +17,7 @@
       <mat-label>Filtrar por RG</mat-label>
       <input matInput [formControl]="filtroRg" maxlength="20">
     </mat-form-field>
-    <div class="actions">
-      <button mat-raised-button color="accent" class="btn-atualizar" (click)="carregar()" [disabled]="loading" aria-label="Atualizar lista">
-        <mat-icon class="icon-left">refresh</mat-icon>
-        <span *ngIf="!loading">Atualizar</span>
-        <mat-progress-spinner *ngIf="loading" diameter="20" mode="indeterminate" color="primary" strokeWidth="3"></mat-progress-spinner>
-      </button>
-    </div>
+  <div class="actions"></div>
   </div>
   <div *ngIf="loading" class="loading">Carregando...</div>
   <table mat-table [dataSource]="filtrados" class="mat-elevation-z2" *ngIf="!loading && filtrados.length">
