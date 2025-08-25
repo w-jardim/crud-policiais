@@ -162,3 +162,38 @@ Imagens de exemplos de uso estão disponíveis na pasta `backend/docs/`.
 ---
 
 Sinta-se à vontade para contribuir ou abrir issues!
+
+## Esquema do banco de dados (MySQL)
+
+Abaixo está o SQL para criar o banco e a tabela `policiais` utilizada pelo backend. Execute em um servidor MySQL/MariaDB antes de iniciar a aplicação (ou adapte para seu SGBD preferido).
+
+```sql
+-- Cria banco
+CREATE DATABASE IF NOT EXISTS crud_policiais CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE crud_policiais;
+
+-- Cria tabela policiais
+CREATE TABLE IF NOT EXISTS policiais (
+   id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+   rg_civil VARCHAR(50) NOT NULL,
+   rg_militar VARCHAR(50) NOT NULL,
+   cpf VARCHAR(20) NOT NULL,
+   data_nascimento DATE NOT NULL,
+   matricula VARCHAR(255) NULL,
+   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+   UNIQUE KEY ux_policiais_unique (rg_civil, rg_militar, cpf)
+);
+```
+
+Instruções rápidas:
+
+- Usando linha de comando (MySQL client):
+
+```bash
+mysql -u <usuario> -p < ./scripts/schema.sql
+```
+
+- Ou conecte-se ao seu servidor MySQL e cole o conteúdo do bloco SQL acima.
+
+OBS: o backend utiliza `db.js` para conectar ao banco. Verifique as variáveis de ambiente (por exemplo em `.env`) com as credenciais e host do seu MySQL antes de iniciar o servidor.
