@@ -1,4 +1,31 @@
+
 # CRUD Policiais
+
+## Como clonar e iniciar o projeto
+
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/w-jardim/crud-policiais.git
+   cd crud-policiais
+   ```
+
+2. Instale as dependências e inicie o backend:
+   ```bash
+   cd backend
+   npm install
+   node index.js
+   ```
+   O backend estará disponível em http://localhost:3000
+
+3. Em outro terminal, instale as dependências e inicie o frontend:
+   ```bash
+   cd frontend/frontend
+   npm install
+   npm start
+   ```
+   O frontend estará disponível em http://localhost:4200
+
+Pronto! Basta acessar o sistema pelo navegador.
 
 Este projeto é um sistema web para gerenciamento de policiais, permitindo cadastro, consulta, edição e remoção de registros de policiais. O objetivo é oferecer uma solução simples e funcional de CRUD (Create, Read, Update, Delete) focada no domínio de segurança pública.
 

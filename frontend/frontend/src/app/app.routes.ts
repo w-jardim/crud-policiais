@@ -6,5 +6,6 @@ export const routes: Routes = [
 	{ path: '', redirectTo: 'policiais', pathMatch: 'full' },
 	{ path: 'policiais', component: ListaPoliciaisComponent },
 	{ path: 'cadastro', component: CadastroPoliciaisComponent },
+	{ path: 'cadastro/:id', component: CadastroPoliciaisComponent },
 	{ path: '**', redirectTo: 'policiais' }
 ];

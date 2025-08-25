@@ -34,11 +34,12 @@
       <div class="card-top">
         <div class="policial-title">Matrícula: <strong>{{ p.matricula || '-' }}</strong></div>
         <div class="card-actions">
-          <button mat-icon-button aria-label="Editar" title="Editar" disabled>
+          <button mat-icon-button aria-label="Editar" title="Editar" (click)="editar(p)">
             <mat-icon>edit</mat-icon>
           </button>
-          <button mat-icon-button color="warn" aria-label="Remover" title="Remover" disabled>
-            <mat-icon>delete</mat-icon>
+          <button mat-icon-button color="warn" aria-label="Remover" title="Remover" (click)="confirmarRemover(p)" [disabled]="removendoId === p.id">
+            <mat-icon *ngIf="removendoId !== p.id">delete</mat-icon>
+            <mat-progress-spinner *ngIf="removendoId === p.id" diameter="20" mode="indeterminate"></mat-progress-spinner>
           </button>
         </div>
       </div>

@@ -14,8 +14,9 @@ export interface Policial {
 
 @Injectable({ providedIn: 'root' })
 export class PoliciaisService {
-  // Usar proxy '/api' para evitar CORS em desenvolvimento
-  private apiUrl = '/api/policiais';
+  // Durante desenvolvimento, usar URL direta do backend para evitar problemas com proxy
+  // Em produção, troque por uma variável de ambiente apropriada
+  private apiUrl = 'http://localhost:3000/policiais';
 
   constructor(private http: HttpClient) {}
 
@@ -27,6 +28,24 @@ export class PoliciaisService {
 
   listarPoliciais(): Observable<Policial[]> {
     return this.http.get<Policial[]>(this.apiUrl).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  obterPolicial(id: number): Observable<Policial> {
+    return this.http.get<Policial>(`${this.apiUrl}/${id}`).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  atualizarPolicial(id: number, policial: Policial): Observable<any> {
+    return this.http.put(`${this.apiUrl}/${id}`, policial).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  removerPolicial(id: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${id}`).pipe(
       catchError(this.handleError)
     );
   }

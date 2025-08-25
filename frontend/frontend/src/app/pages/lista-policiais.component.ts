@@ -7,6 +7,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { Router } from '@angular/router';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
@@ -20,6 +22,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
     MatCardModule,
     MatIconModule,
     MatProgressSpinnerModule,
+    MatSnackBarModule,
     ReactiveFormsModule
   ],
   templateUrl: './lista-policiais.component.html',
@@ -32,8 +35,9 @@ export class ListaPoliciaisComponent implements OnInit {
   filtroCpf = new FormControl('');
   filtroRg = new FormControl('');
   loading = false;
+  removendoId: number | null = null;
 
-  constructor(private policiaisService: PoliciaisService) {}
+  constructor(private policiaisService: PoliciaisService, private router: Router, private snackBar: MatSnackBar) {}
 
   ngOnInit() {
     this.carregar();
@@ -53,6 +57,27 @@ export class ListaPoliciaisComponent implements OnInit {
         this.policiais = [];
         this.filtrados = [];
         this.loading = false;
+      }
+    });
+  }
+
+  editar(p: Policial) {
+  // navegar para o formulário em modo edição
+  this.router.navigate(['/cadastro', p.id]);
+  }
+
+  confirmarRemover(p: Policial) {
+    if (!confirm('Confirma remover o policial selecionado?')) return;
+    this.removendoId = p.id || null;
+    this.policiaisService.removerPolicial(p.id!).subscribe({
+      next: () => {
+        this.snackBar.open('Policial removido', 'Fechar', { duration: 3000 });
+        this.carregar();
+        this.removendoId = null;
+      },
+      error: (err) => {
+        this.snackBar.open(err, 'Fechar', { duration: 4000 });
+        this.removendoId = null;
       }
     });
   }
