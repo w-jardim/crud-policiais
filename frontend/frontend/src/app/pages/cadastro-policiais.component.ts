@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -18,7 +20,9 @@ import { CommonModule } from '@angular/common';
     MatInputModule,
     MatButtonModule,
     MatCardModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatIconModule,
+    MatProgressSpinnerModule
   ],
   templateUrl: './cadastro-policiais.component.html',
   styleUrl: './cadastro-policiais.component.scss'

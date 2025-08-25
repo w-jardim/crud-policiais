@@ -32,8 +32,12 @@
       <mat-error *ngIf="form.get('matricula')?.hasError('required')">Matrícula é obrigatória</mat-error>
     </mat-form-field>
 
-    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid || loading">
-      {{ loading ? 'Enviando...' : 'Cadastrar' }}
-    </button>
+    <div class="actions">
+      <button mat-raised-button color="primary" class="btn-cadastrar" type="submit" [disabled]="form.invalid || loading">
+        <mat-icon *ngIf="!loading" class="icon-left">person_add</mat-icon>
+        <mat-progress-spinner *ngIf="loading" diameter="22" mode="indeterminate" color="accent" strokeWidth="3"></mat-progress-spinner>
+        <span>{{ loading ? 'Enviando...' : 'Cadastrar' }}</span>
+      </button>
+    </div>
   </form>
 </mat-card>

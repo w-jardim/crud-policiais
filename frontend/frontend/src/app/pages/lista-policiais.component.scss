@@ -25,6 +25,35 @@
 	align-items: flex-end;
 }
 
+.actions {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.btn-atualizar {
+	min-width: 120px;
+	font-weight: 600;
+	letter-spacing: .5px;
+	display: flex;
+	align-items: center;
+	gap: .5rem;
+	box-shadow: 0 2px 8px rgba(21,101,192,0.08);
+	border-radius: 8px;
+	transition: background .2s, box-shadow .2s;
+}
+.btn-atualizar .icon-left {
+	font-size: 20px;
+	margin-right: 2px;
+}
+.btn-atualizar:disabled {
+	opacity: 0.7;
+	box-shadow: none;
+}
+.btn-atualizar mat-progress-spinner {
+	margin-right: 8px;
+}
+
 :host ::ng-deep .lista-card mat-form-field {
 	min-width: 220px;
 	flex: 1;

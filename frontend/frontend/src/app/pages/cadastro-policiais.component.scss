@@ -25,11 +25,36 @@
 	width: 100%;
 }
 
+
 .actions {
-	margin-top: .75rem;
+	margin-top: 1.25rem;
 	display: flex;
-	gap: .75rem;
+	gap: 1rem;
 	justify-content: flex-end;
+}
+
+.btn-cadastrar {
+	min-width: 140px;
+	font-weight: 600;
+	letter-spacing: .5px;
+	display: flex;
+	align-items: center;
+	gap: .5rem;
+	box-shadow: 0 2px 8px rgba(13,71,161,0.08);
+	border-radius: 8px;
+	transition: background .2s, box-shadow .2s;
+}
+.btn-cadastrar .icon-left {
+	font-size: 22px;
+	margin-right: 2px;
+}
+.btn-cadastrar:disabled {
+	opacity: 0.7;
+	box-shadow: none;
+}
+
+.btn-cadastrar mat-progress-spinner {
+	margin-right: 8px;
 }
 
 .error-message {

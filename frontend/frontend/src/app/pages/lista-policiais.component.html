@@ -9,9 +9,13 @@
       <mat-label>Filtrar por RG</mat-label>
       <input matInput [formControl]="filtroRg" maxlength="20">
     </mat-form-field>
-    <button mat-icon-button color="primary" (click)="carregar()" [disabled]="loading" title="Atualizar">
-      <mat-icon>refresh</mat-icon>
-    </button>
+    <div class="actions">
+      <button mat-raised-button color="accent" class="btn-atualizar" (click)="carregar()" [disabled]="loading" aria-label="Atualizar lista">
+        <mat-icon class="icon-left">refresh</mat-icon>
+        <span *ngIf="!loading">Atualizar</span>
+        <mat-progress-spinner *ngIf="loading" diameter="20" mode="indeterminate" color="primary" strokeWidth="3"></mat-progress-spinner>
+      </button>
+    </div>
   </div>
   <div *ngIf="loading" class="loading">Carregando...</div>
   <table mat-table [dataSource]="filtrados" class="mat-elevation-z2" *ngIf="!loading && filtrados.length">
