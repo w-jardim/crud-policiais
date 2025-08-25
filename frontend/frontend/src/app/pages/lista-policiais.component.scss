@@ -67,15 +67,17 @@
 }
 
 .btn-atualizar {
-	min-width: 120px;
-	font-weight: 600;
-	letter-spacing: .5px;
-	display: flex;
-	align-items: center;
-	gap: .5rem;
-	box-shadow: 0 8px 20px rgba(14,165,164,0.06);
-	border-radius: 10px;
-	transition: background .2s, box-shadow .2s;
+		min-width: 120px;
+		font-weight: 600;
+		letter-spacing: .5px;
+		display: flex;
+		align-items: center;
+		gap: .5rem;
+		background: linear-gradient(90deg, var(--color-primary), var(--color-primary-accent));
+		color: #fff;
+		box-shadow: 0 10px 28px rgba(14,165,164,0.06);
+		border-radius: 10px;
+		transition: background .18s, box-shadow .18s, transform .12s;
 }
 .btn-atualizar .icon-left {
 	font-size: 20px;
@@ -87,6 +89,11 @@
 }
 .btn-atualizar mat-progress-spinner {
 	margin-right: 8px;
+}
+
+.btn-atualizar:hover:not(:disabled) {
+	transform: translateY(-2px);
+	box-shadow: 0 14px 36px rgba(14,165,164,0.09);
 }
 
 :host ::ng-deep .lista-card mat-form-field {
