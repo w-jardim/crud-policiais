@@ -1,0 +1,20 @@
+// Controller para policiais
+const policialModel = require('../models/policialModel');
+
+exports.cadastrarPolicial = async (req, res, next) => {
+  try {
+    const result = await policialModel.cadastrar(req.body);
+    res.status(201).json(result);
+  } catch (err) {
+    next(err);
+  }
+};
+
+exports.listarPoliciais = async (req, res, next) => {
+  try {
+    const lista = await policialModel.listar();
+    res.json(lista);
+  } catch (err) {
+    next(err);
+  }
+};
