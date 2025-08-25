@@ -6,6 +6,14 @@ exports.cadastrarPolicial = async (req, res, next) => {
     const result = await policialModel.cadastrar(req.body);
     res.status(201).json(result);
   } catch (err) {
+    // Se for erro de validação, retorna 400
+    if (err.message && (
+      err.message.includes('obrigatório') ||
+      err.message.includes('inválido') ||
+      err.message.includes('já cadastrado')
+    )) {
+      return res.status(400).json({ error: err.message });
+    }
     next(err);
   }
 };
