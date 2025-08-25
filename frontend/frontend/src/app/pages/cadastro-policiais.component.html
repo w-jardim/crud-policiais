@@ -1,32 +1,32 @@
 <mat-card class="cadastro-card">
   <h2>Cadastro de Policial Militar</h2>
   <form [formGroup]="form" (ngSubmit)="submit()">
-    <mat-form-field appearance="outline" class="full-width">
+    <mat-form-field appearance="fill" class="full-width input-wrap">
       <mat-label>RG Civil</mat-label>
       <input matInput formControlName="rg_civil" maxlength="20" required>
       <mat-error *ngIf="form.get('rg_civil')?.hasError('required')">RG Civil é obrigatório</mat-error>
     </mat-form-field>
 
-    <mat-form-field appearance="outline" class="full-width">
+    <mat-form-field appearance="fill" class="full-width input-wrap">
       <mat-label>RG Militar</mat-label>
       <input matInput formControlName="rg_militar" maxlength="20" required>
       <mat-error *ngIf="form.get('rg_militar')?.hasError('required')">RG Militar é obrigatório</mat-error>
     </mat-form-field>
 
-    <mat-form-field appearance="outline" class="full-width">
+    <mat-form-field appearance="fill" class="full-width input-wrap">
       <mat-label>CPF</mat-label>   
       <input matInput formControlName="cpf" maxlength="14" required>
       <mat-error *ngIf="form.get('cpf')?.hasError('required')">CPF é obrigatório</mat-error>
       <mat-error *ngIf="form.get('cpf')?.hasError('cpfInvalido')">CPF inválido</mat-error>
     </mat-form-field>
 
-    <mat-form-field appearance="outline" class="full-width">
+    <mat-form-field appearance="fill" class="full-width input-wrap">
       <mat-label>Data de Nascimento</mat-label>
       <input matInput formControlName="data_nascimento" type="date" required>
       <mat-error *ngIf="form.get('data_nascimento')?.hasError('required')">Data de nascimento é obrigatória</mat-error>
     </mat-form-field>
 
-    <mat-form-field appearance="outline" class="full-width">
+    <mat-form-field appearance="fill" class="full-width input-wrap">
       <mat-label>Matrícula</mat-label>
       <input matInput formControlName="matricula" maxlength="50" required>
       <mat-error *ngIf="form.get('matricula')?.hasError('required')">Matrícula é obrigatória</mat-error>

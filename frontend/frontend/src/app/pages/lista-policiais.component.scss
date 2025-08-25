@@ -29,6 +29,9 @@
 
 .lista-card h2 { margin: 0; font-size: 1.4rem; }
 
+.input-wrap { display: block; border-radius: 12px; overflow: hidden; }
+.input-wrap .mat-mdc-form-field-infix { padding-left: .6rem; padding-right: .6rem; }
+
 .filtros {
 	display: flex;
 	gap: 1rem;
