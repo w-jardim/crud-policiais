@@ -16,8 +16,8 @@ body {
 
 /* Design tokens */
 :root {
-	--color-primary: #0d47a1;
-	--color-primary-accent: #1565c0;
+	--color-primary: #0b7285; /* teal-ish modern */
+	--color-primary-accent: #0ea5a4;
 	--color-surface: #ffffff;
 	--radius-sm: 6px;
 	--radius-md: 12px;
@@ -28,6 +28,12 @@ body {
 }
 
 a { text-decoration: none; color: inherit; }
+
+/* App container helper */
+.container {
+	width: min(1200px, 96%);
+	margin: 0 auto;
+}
 
 /* Scrollbar (webkit) */
 *::-webkit-scrollbar { width: 10px; height: 10px; }
@@ -43,3 +49,19 @@ a { text-decoration: none; color: inherit; }
 /* Material overrides (light touch) */
 .mat-mdc-raised-button.mat-primary { box-shadow: var(--shadow-sm); }
 .mat-mdc-card { border-radius: var(--radius-lg); }
+
+/* Modern buttons */
+.btn-primary {
+	background: linear-gradient(90deg, var(--color-primary), var(--color-primary-accent));
+	color: #fff;
+	border-radius: 10px;
+	padding: .6rem .9rem;
+	box-shadow: var(--shadow-md);
+}
+
+/* Form controls focus */
+input[matInput]:focus, textarea[matInput]:focus {
+	outline: none;
+	box-shadow: 0 6px 18px rgba(14,165,164,0.08);
+	border-radius: 8px;
+}
