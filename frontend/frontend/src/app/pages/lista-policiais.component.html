@@ -20,25 +20,29 @@
   <div class="actions"></div>
   </div>
   <div *ngIf="loading" class="loading">Carregando...</div>
-  <table mat-table [dataSource]="filtrados" class="mat-elevation-z2" *ngIf="!loading && filtrados.length">
-    <ng-container matColumnDef="rg_civil">
-      <th mat-header-cell *matHeaderCellDef>RG Civil</th>
-      <td mat-cell *matCellDef="let p">{{ p.rg_civil }}</td>
-    </ng-container>
-    <ng-container matColumnDef="rg_militar">
-      <th mat-header-cell *matHeaderCellDef>RG Militar</th>
-      <td mat-cell *matCellDef="let p">{{ p.rg_militar }}</td>
-    </ng-container>
-    <ng-container matColumnDef="cpf">
-      <th mat-header-cell *matHeaderCellDef>CPF</th>
-      <td mat-cell *matCellDef="let p">{{ p.cpf }}</td>
-    </ng-container>
-    <ng-container matColumnDef="data_nascimento">
-      <th mat-header-cell *matHeaderCellDef>Data de Nascimento</th>
-      <td mat-cell *matCellDef="let p">{{ p.data_nascimento | date:'dd/MM/yyyy' }}</td>
-    </ng-container>
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
+
+  <div class="card-grid" *ngIf="!loading && filtrados.length">
+    <mat-card class="policial-card" *ngFor="let p of filtrados" role="article">
+      <div class="card-top">
+        <div class="policial-title">Matrícula: <strong>{{ p.matricula || '-' }}</strong></div>
+        <div class="card-actions">
+          <button mat-icon-button aria-label="Editar" title="Editar" disabled>
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" aria-label="Remover" title="Remover" disabled>
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <div class="field"><span class="label">RG Civil</span><span class="value">{{ p.rg_civil }}</span></div>
+        <div class="field"><span class="label">RG Militar</span><span class="value">{{ p.rg_militar }}</span></div>
+        <div class="field"><span class="label">CPF</span><span class="value">{{ p.cpf }}</span></div>
+        <div class="field"><span class="label">Nascimento</span><span class="value">{{ p.data_nascimento | date:'dd/MM/yyyy' }}</span></div>
+      </div>
+    </mat-card>
+  </div>
+
   <div *ngIf="!loading && !filtrados.length" class="nenhum">Nenhum policial encontrado.</div>
 </mat-card>
